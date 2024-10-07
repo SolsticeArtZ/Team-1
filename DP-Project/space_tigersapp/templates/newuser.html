@@ -24,40 +24,50 @@
             </p>
         </article>
 
-        <form>
+        <form method="post">
+            {% csrf_token %}
             <fieldset>
                 <legend>Basic Details</legend>
-                <!-- first name -->
+                <!-- First name -->
                 <label for="fname">First name:</label><br>
-                <input type="text" id="fname" name="first_name" required><br><br>
+                <input type="text" id="fname" name="first_name" value="{{ form.first_name.value }}" required><br><br>
+        
                 <!-- Middle initial -->
                 <label for="mname">Middle Initial (optional):</label><br>
-                <input type="text" id="mname" name="middle_initial"><br><br>
-                <!-- last name -->
+                <input type="text" id="mname" name="middle_initial" value="{{ form.middle_initial.value }}"><br><br>
+        
+                <!-- Last name -->
                 <label for="lname">Last name:</label><br>
-                <input type="text" id="lname" name="last_name" required><br><br>
+                <input type="text" id="lname" name="last_name" value="{{ form.last_name.value }}" required><br><br>
             </fieldset>
+        
             <br>
+        
             <fieldset>
                 <legend>Contact Information</legend>
-                <!-- email address -->
+                <!-- Email -->
                 <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
-                <!-- phone number -->
+                <input type="email" id="email" name="email" value="{{ form.email.value }}" required><br><br>
+        
+                <!-- Phone -->
                 <label for="phone">Phone:</label><br>
-                <input type="tel" id="phone" name="phone" required><br><br>
+                <input type="tel" id="phone" name="phone" value="{{ form.phone.value }}" required><br><br>
             </fieldset>
+        
             <br>
+        
             <fieldset>
                 <legend>Profile</legend>
-                <!-- avatar url -->
+                <!-- Avatar URL -->
                 <label for="avatar_url">Avatar URL:</label><br>
-                <input type="url" id="avatar_url" name="avatar_url"><br><br>
+                <input type="url" id="avatar_url" name="avatar_url" value="{{ form.avatar_url.value }}"><br><br>
             </fieldset>
+        
             <br>
-            <!-- submit form -->
+            <!-- Submit form -->
             <input type="submit" value="Submit">
         </form>
+        
     </section>
 
     <footer>
