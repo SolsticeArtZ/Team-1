@@ -5,17 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Tigers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        li {
+            margin: 20px;
+            padding: 15px;
+            border-radius: 15px;
+            max-width: 250px;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
     <a href="{% url 'new_user' %}">Sign up</a>
-    <h1>Shop Space products</h1>
+    <a href="{% url 'user_table' %}">User List</a>
+    <h1>Shop Space Tiger Products</h1>
     <ul>
         {% for product in products %}
-        <li>{{ product.name }} (${{ product.price }})</li>
+        <li>
+            <img src="{{ product.image_url }}" alt="{{ product.name }}">
+            <p>{{ product.name }} (${{ product.price }})</p>
+        </li>
         {% endfor %}
     </ul>
-
 </body>
 
 </html>
