@@ -29,45 +29,39 @@
             <fieldset>
                 <legend>Basic Details</legend>
                 <!-- First name -->
-                <label for="fname">First name:</label><br>
-                <input type="text" id="fname" name="first_name" value="{{ form.first_name.value }}" required><br><br>
-        
+                <label for="fname">First name:</label><br>{{ form.first_name }}<br><br>
+
                 <!-- Middle initial -->
-                <label for="mname">Middle Initial (optional):</label><br>
-                <input type="text" id="mname" name="middle_initial" value="{{ form.middle_initial.value }}"><br><br>
-        
+                <label for="mname">Middle Initial (optional):</label><br>{{ form.middle_initial }}<br><br>
+
                 <!-- Last name -->
-                <label for="lname">Last name:</label><br>
-                <input type="text" id="lname" name="last_name" value="{{ form.last_name.value }}" required><br><br>
+                <label for="lname">Last name:</label><br>{{ form.last_name }}<br><br>
             </fieldset>
-        
+
             <br>
-        
+
             <fieldset>
                 <legend>Contact Information</legend>
                 <!-- Email -->
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" value="{{ form.email.value }}" required><br><br>
-        
+                <label for="email">Email:</label><br>{{ form.email }}<br><br>
+
                 <!-- Phone -->
-                <label for="phone">Phone:</label><br>
-                <input type="tel" id="phone" name="phone" value="{{ form.phone.value }}" required><br><br>
+                <label for="phone">Phone:</label><br>{{ form.phone }}<br><br>
             </fieldset>
-        
+
             <br>
-        
+
             <fieldset>
                 <legend>Profile</legend>
                 <!-- Avatar URL -->
-                <label for="avatar_url">Avatar URL:</label><br>
-                <input type="url" id="avatar_url" name="avatar_url" value="{{ form.avatar_url.value }}"><br><br>
+                <label for="avatar_url">Avatar URL:</label><br>{{ form.avatar_url }}<br><br>
             </fieldset>
-        
+
             <br>
             <!-- Submit form -->
             <input type="submit" value="Submit">
         </form>
-        
+
     </section>
 
     <footer>
