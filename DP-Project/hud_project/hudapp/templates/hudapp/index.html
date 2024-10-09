@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}  <!-- This line fixes the error -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic HUD</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Sidebar HUD -->
+    <div class="hud-sidebar">
+        <div class="profile-section">
+            <img src="{% static 'img/avatar.png' %}" alt="User Avatar" class="avatar">
+            <h2 class="user-name">SolzLabs</h2>
+        </div>
+        <ul class="hud-menu">
+            <li><a href="#" class="neon-button">Marketplace</a></li>
+            <li><a href="#" class="neon-button">Games</a></li>
+            <li><a href="#" class="neon-button">Messages</a></li>
+            <li><a href="#" class="neon-button">Profile</a></li>
+        </ul>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-navbar">
+        <ul class="nav-menu">
+            <li><a href="#" class="neon-link">Dashboard</a></li>
+            <li><a href="#" class="neon-link">Settings</a></li>
+            <li><a href="#" class="neon-link">Notifications</a></li>
+        </ul>
+    </nav>
+
+    <!-- Floating Dashboard -->
+    <div class="hud-dashboard">
+        <h1 class="dashboard-title">Welcome to SolzLabs</h1>
+        <div class="stat-card">
+            <h2 class="stat-title">Total Sales</h2>
+            <p class="stat-value">$5,000</p>
+        </div>
+        <div class="stat-card">
+            <h2 class="stat-title">Active Users</h2>
+            <p class="stat-value">1,234</p>
+        </div>
+        <div class="stat-card">
+            <h2 class="stat-title">New Messages</h2>
+            <p class="stat-value">10</p>
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
