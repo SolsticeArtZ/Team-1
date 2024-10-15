@@ -11,11 +11,11 @@ body {
 .navbar {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 1px;
 }
 
 nav {
-    flex: 1;
+    flex: 10;
     text-align: right;
 }
 
@@ -196,34 +196,54 @@ h4 {
     font-weight: normal;
 }
 
-/* Added Newest Products section matching Featured Products */
-.title::after {
-    content: '';
-    background: #ffde21;
-    width: 160px;
-    height: 5px;
-    border-radius: 20px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -15px;
-}
 .col-2 .offer-img {
     padding: 50px;
 }
-small{
-    color:#964B00;
+
+small {
+    color: #964B00;
 }
+
 .AboutTheCreators {
     padding-top: 100px;
-
 }
-AboutTheCreators col-3{
+
+.AboutTheCreators .col-3 {
     text-align: center;
     padding: 40px 20px;
 }
-AboutTheCreators col-3 img{
-width:50px;
-margin-top: 20px;
-border-radius: 40%;
+
+.AboutTheCreators .col-3 img {
+    width: 50px;
+    margin-top: 20px;
+    border-radius: 40%;
+}
+
+/* Media Org */
+@media only screen and (max-width: 800px) {
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #320;
+        width: 100px;
+    }
+    nav ul li {
+        display: block;
+        margin-right: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Adjust the space between the cart and menu icons */
+.cart-icon {
+    margin-right: 12px; /* Adjust this to change the space */
+}
+
+.menu-icon {
+    margin-left: 12px; /* Space between the icons */
+}
+.offer {
+    background: radial-gradient(#fff, #ffd6d6); /* Same background color as header */
 }
