@@ -138,7 +138,7 @@ p {
 
 /* Updated Featured Products section */
 .col-4 {
-    flex-basis: 25%; /* Each column will take 30% of the available width */
+    flex-basis: 25%; /* Each column will take 25% of the available width */
     padding: 10px;
     min-width: 200px;
 }
@@ -149,8 +149,18 @@ p {
     margin-bottom: 10px;
 }
 
+.col-4 p {
+    font-size: 14px;
+}
+
 .rating i {
     color: #ff9529; /* Color the stars */
+}
+
+/* hover animation */
+.col-4:hover {
+    transform: translateY(-5px);
+    transition: transform 0.5s;
 }
 
 /* Media Queries for Responsive Design */
@@ -160,22 +170,60 @@ p {
         max-width: 100%;
     }
 }
-.title{
+
+.title {
     text-align: center;
     margin: 0 auto 80px;
     position: relative;
     line-height: 60px;
     color: #000000;
 }
-.title::after{
-content:'';
-background: #ffde21;
-width: 200px;
-height: 5px;
-border-radius:15px;
-position: absolute;
-left: 50%; /* Move the line to the center horizontally */
-transform: translateX(-50%); /* Offset by half its own width to center it */
-bottom: -15px; /
 
+.title::after {
+    content: '';
+    background: #ffde21;
+    width: 160px;
+    height: 5px;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%; /* Move the line to the center horizontally */
+    transform: translateX(-50%); /* Offset by half its own width to center it */
+    bottom: -15px; /* Adjust the position below the title */
+}
+
+h4 {
+    color: #555;
+    font-weight: normal;
+}
+
+/* Added Newest Products section matching Featured Products */
+.title::after {
+    content: '';
+    background: #ffde21;
+    width: 160px;
+    height: 5px;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+}
+.col-2 .offer-img {
+    padding: 50px;
+}
+small{
+    color:#964B00;
+}
+.AboutTheCreators {
+    padding-top: 100px;
+
+}
+AboutTheCreators col-3{
+    text-align: center;
+    padding: 40px 20px;
+}
+AboutTheCreators col-3 img{
+width:50px;
+margin-top: 20px;
+border-radius: 40%;
 }
