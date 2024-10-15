@@ -11,6 +11,7 @@ body {
 .navbar {
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Ensures proper spacing between the logo and other elements */
     padding: 1px;
 }
 
@@ -219,31 +220,61 @@ small {
     border-radius: 40%;
 }
 
-/* Media Org */
-@media only screen and (max-width: 800px) {
-    nav ul {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        background: #320;
-        width: 100px;
-    }
-    nav ul li {
-        display: block;
-        margin-right: 50px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+/* Menu Icon */
+.menu-icon {
+    width: 28px;
+    margin-left: 12px;
+    display: none;
+    cursor: pointer;
 }
 
 /* Adjust the space between the cart and menu icons */
 .cart-icon {
-    margin-right: 12px; /* Adjust this to change the space */
+    margin-right: 12px;
 }
 
-.menu-icon {
-    margin-left: 12px; /* Space between the icons */
-}
 .offer {
     background: radial-gradient(#fff, #ffd6d6); /* Same background color as header */
+}
+
+/* Media Org 800px Screen */
+@media only screen and (max-width: 800px) {
+    nav ul {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 98%;
+        background: #320;
+        overflow: hidden;
+        flex-direction: column;
+        transition: max-height 0.5s;
+    }
+    nav ul.show {
+        left: 0;
+    }
+    nav ul li {
+        display: block;
+        margin-right: 12;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    nav ul li a {
+        color: #ffffff;
+    }
+    .menu-icon {
+        display: block;
+    }
+    .navbar {
+        justify-content: space-between;
+    }
+}
+/* Media Org 600 or less Screen */
+
+@media only screen and (max-width: 600px) {
+    .row{
+        text-align:center
+    }
+    .col-2, .col-3, .col-4{
+        flex-basis: 100%;
+    }
 }
