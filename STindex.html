@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Tigers Shop</title>
+    <title>All Products - Space Tiger Shop</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
                 <img src="https://i.ibb.co/B2mgCdT/UPSSTiger.png" width="120px" alt="Space Tiger Logo">
             </div>
             <nav> 
-                <ul>
+                <ul id="MenuItems">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Products</a></li>
                     <li><a href="#">About</a></li>
@@ -27,7 +27,7 @@
                 </ul>
             </nav>
             <img src="https://i.ibb.co/bbkfYHR/shopping-cart.png" width="30px" height="30px" alt="Cart Icon" class="cart-icon">
-            <img src="https://i.ibb.co/wgLQyHW/588a6507d06f6719692a2d15.png" width="30px" height="30px" alt="Menu Icon" class="menu-icon">
+            <img src="https://i.ibb.co/wgLQyHW/588a6507d06f6719692a2d15.png" width="30px" height="30px" alt="Menu Icon" class="menu-icon" onclick="menutoggle()">
         </div>
 
         <div class="row">
@@ -42,6 +42,18 @@
         </div>
     </div>
 </div>
+
+<!-- Menu Toggle Script -->
+<script>
+    function menutoggle() {
+        var MenuItems = document.getElementById("MenuItems");
+        if (MenuItems.style.maxHeight == "0px" || MenuItems.style.maxHeight == "") {
+            MenuItems.style.maxHeight = "200px";
+        } else {
+            MenuItems.style.maxHeight = "0px";
+        }
+    }
+</script>
 
 <!-- Featured Categories-->
 <div class="categories">
@@ -112,47 +124,6 @@
                 <i class="far fa-star"></i>
             </div>
             <p>$25.00</p>
-        </div>
-    </div>
-</div>
-
-<!--Website Deals Page-->
-<div class="offer">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-2">
-                <h1>Tiger Watch Executive</h1>
-                <small>Elevate your style with the Tiger Watch Executive, the ultimate blend of sophistication and cutting-edge technology. For a limited time only, experience exclusive savings on this sleek timepiece designed for those who command excellence.</small>
-            </div>
-            <div class="col-2">
-                <img src="https://ztylez.com/wp-content/uploads/2022/01/piaget_01.jpg" class="offer-img">
-            </div>    
-        </div>
-    </div>
-</div>
-
-<!-- About the Creators-->
-<div class="AboutTheCreators">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-3">
-              <p>This is about the creator. I will fill this in about all 4 project team members once I have the information about them.</p>  
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Footer -->
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="footer-col-1">
-              <h3>Download a PDF of Our Most Recent Offers</h3>  
-              <p>Download on all platforms & open with Adobe Acrobat</p>
-            </div>
-            <div class="footer">
-                <img src="https://www.freeiconspng.com/uploads/pdf-icon-4.png" width="40px" height="40px" alt="PDF Icon">
-            </div>
         </div>
     </div>
 </div>
