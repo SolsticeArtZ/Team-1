@@ -167,3 +167,15 @@ p {
     line-height: 60px;
     color: #000000;
 }
+.title::after{
+content:'';
+background: #ffde21;
+width: 200px;
+height: 5px;
+border-radius:15px;
+position: absolute;
+left: 50%; /* Move the line to the center horizontally */
+transform: translateX(-50%); /* Offset by half its own width to center it */
+bottom: -15px; /
+
+}
