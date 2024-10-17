@@ -278,3 +278,100 @@ small {
         flex-basis: 100%;
     }
 }
+
+.small-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+
+/* Image and product container styling */
+.col-5 {
+    flex-basis: 23%; /* Each column takes roughly 23% of the available width */
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.col-5 img {
+    width: 100%; /* Makes sure the image takes full width of the parent container */
+    max-width: 250px; /* Set a max width so all images are uniform */
+    height: 250px; /* Ensures all images have the same height */
+    object-fit: cover; /* Makes sure the image covers the entire container without stretching */
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+.col-5 h5 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.col-5 p {
+    font-size: 16px;
+    color: #777;
+}
+
+.rating {
+    margin-top: 5px; /* Margin above the rating stars */
+}
+
+.rating i {
+    color: #ff9529; /* Color the stars */
+}
+
+/* Responsive behavior for mobile devices */
+@media (max-width: 768px) {
+    .col-6 {
+        flex-basis: 100%; /* For small screens, make each product take full width */
+    }
+}
+/* Image and product container styling */
+.col-6 {
+    flex-basis: 23%; /* Each column takes roughly 23% of the available width */
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.col-6 img {
+    max-width: 250px; /* Set a max width so all images are uniform */
+    height: 250px; /* Ensures all images have the same height */
+    object-fit: cover; /* Makes sure the image covers the entire container without stretching */
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+.col-6 h5 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.col-6 p {
+    font-size: 16px;
+    color: #777;
+}
