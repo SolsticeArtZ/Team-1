@@ -335,7 +335,11 @@ body {
     font-size: 16px;
     color: #777;
 }
-
+/* hover animation */
+.col-5:hover {
+    transform: translateY(-5px);
+    transition: transform 0.5s;
+}
 .rating {
     margin-top: 5px; /* Margin above the rating stars */
 }
@@ -374,4 +378,9 @@ body {
 .col-6 p {
     font-size: 16px;
     color: #777;
+}
+/* hover animation */
+.col-6:hover {
+    transform: translateY(-5px);
+    transition: transform 0.5s;
 }
