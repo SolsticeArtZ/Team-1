@@ -32,10 +32,54 @@
     <!-- Sticky Note Section for About Us -->
     <div class="sticky-note-container">
         <h1>About Space Tigers</h1>
-        <p>Welcome to Space Tigers, where we offer a cosmic collection of products designed to bring out the explorer in you. Our mission is to create unique, high-quality products that combine modern design with the spirit of adventure. Whether you're looking for exclusive apparel, innovative accessories, or futuristic gear, Space Tigers is here to deliver.</p>
-        <p class="italic">Our journey started in 2024, when a group of tech enthusiasts and designers came together with a shared goal: to merge technology, art, and fashion. Since then, we've been on an exciting ride, offering a unique blend of practicality and style to customers around the world.</p>
-        <p>From our signature Tiger-themed gear to the cutting-edge tools we offer, our products are crafted with attention to detail, built to last, and designed to inspire. Explore our collection and join the Space Tigers family today!</p>
+        <p>Welcome to Space Tigers, where we offer a cosmic collection of products designed to bring out the explorer in you. Our mission is to create unique, high-quality products that combine modern design with the spirit of adventure.</p>
         <p class="italic">"Where the wild meets the cosmic - Space Tigers leads the charge."</p>
+    </div>
+
+    <!-- Customer Sign-Up Form -->
+    <div class="sticky-note-container">
+        <h1>Customer Sign-Up</h1>
+        <form id="customerForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required><br><br>
+
+            <label for="middleName">Middle Name (Optional):</label>
+            <input type="text" id="middleName"><br><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required><br><br>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required><br><br>
+
+            <label for="avatarUrl">Avatar URL:</label>
+            <input type="url" id="avatarUrl"><br><br>
+
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- Sticky Note Section for Customer Table -->
+    <div class="sticky-note-container">
+        <h1>Customer Information</h1>
+        <table style="width:100%; border-collapse: collapse; margin: 20px 0;" id="customerTable">
+            <thead>
+                <tr style="background-color: #555; color: white; text-align: center;">
+                    <th style="padding: 10px;">First Name</th>
+                    <th style="padding: 10px;">Middle Name</th>
+                    <th style="padding: 10px;">Last Name</th>
+                    <th style="padding: 10px;">Email</th>
+                    <th style="padding: 10px;">Phone</th>
+                    <th style="padding: 10px;">Avatar URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Existing customers will be listed here -->
+            </tbody>
+        </table>
     </div>
 
     <!-- Footer -->
@@ -65,6 +109,34 @@
             link.click();
             document.body.removeChild(link);
         }
+
+        // Form submission handler to add customer to the table
+        document.getElementById('customerForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form from submitting the default way
+
+            // Get form values
+            const firstName = document.getElementById('firstName').value;
+            const middleName = document.getElementById('middleName').value || 'N/A';  // Default to 'N/A' if not provided
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const avatarUrl = document.getElementById('avatarUrl').value || '#';  // Default to '#' if not provided
+
+            // Add new customer to the table
+            const customerTable = document.getElementById('customerTable').getElementsByTagName('tbody')[0];
+            const newRow = customerTable.insertRow();
+            newRow.innerHTML = `
+                <td style="padding: 10px;">${firstName}</td>
+                <td style="padding: 10px;">${middleName}</td>
+                <td style="padding: 10px;">${lastName}</td>
+                <td style="padding: 10px;">${email}</td>
+                <td style="padding: 10px;">${phone}</td>
+                <td style="padding: 10px;"><a href="${avatarUrl}" target="_blank">Avatar</a></td>
+            `;
+
+            // Clear the form
+            document.getElementById('customerForm').reset();
+        });
     </script>
 
 </body>
