@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts - Space Tigers Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/B2mgCdT/UPSSTiger.png" width="120px" alt="Space Tiger Logo">
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="STindex.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="accounts.html" id="accountLink">Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Information Section -->
+<div class="sticky-note-container">
+    <h1>Contact Information</h1>
+    
+    <div class="notepad">
+        <h3>Alexander Yerger</h3>
+        <p>Email: <a href="mailto:alexander.yerger@stmartin.edu">alexander.yerger@stmartin.edu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/alexander-yerger-79659a2aa/?trk=opento_sprofile_topcard">Alexander Yerger</a></p>
+        <p>Github: <a href="https://github.com/SolsticeArtZ/Team-1">SolsticeArtZ</a></p>
+        <p>Company: Saint Martin's University</p>
+   
+    </div>
+
+    <div class="notepad">
+        <h3>Nathaniel Klingbeil</h3>
+        <p>Email: <a href="mailto:nathaniel.klingbeil@stmartin.edu">nathaniel.klingbeil@stmartin.edu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/nate-klingbeil/">Nate Klingbeil</a></p>
+        <p>Github: <a href="https://github.com/nateklingbeil">Nate's Github</a></p>
+        <p>Company: Saint Martin's University</p>
+    </div>
+
+    <div class="notepad">
+        <h3>John Vieira</h3>
+        <p>Email: <a href="mailto:john.vieira@stmartin.edu">john.vieira@stmartin.edu</a></p>
+        <p>LinkedIn: <a href="hhttps://www.linkedin.com/in/john-vieira209/">John Vieira</a></p>
+        <p>Github: <a href="https://github.com/jvieira209">Jvieira209</a></p>
+        <p>Company: Saint Martin's University</p>
+    </div>
+
+
+    <div class="notepad">
+        <h3>Nicholas Manley</h3>
+        <p>Email: <a href="mailto:nicholas.manley@stmartin.edu">nicholas.manley@stmartin.edu</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/nicholas-manley-46054a32/">Nickolas Manley</a></p>
+        <p>Github: <a href="https://github.com/Deafsnd">Deafsnd</a></p>
+        <p>Company: Saint Martin's University</p>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <div class="container footer-content">
+        <h3>Download a PDF of Our Most Recent Offers</h3>
+        <p>Download on all platforms & open with Adobe Acrobat</p>
+        <img src="https://www.freeiconspng.com/uploads/pdf-icon-4.png" width="40px" height="40px" alt="PDF Icon" style="cursor: pointer;" onclick="downloadPDF()">
+    </div>
+</div>
+
+<script>
+    function downloadPDF() {
+        var link = document.createElement('a');
+        link.href = 'https://jmp.sh/s/ZohR9Q11VEYSGpBs4a5N';  // Example PDF link
+        link.download = 'most-recent-offers.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+</body>
+</html>

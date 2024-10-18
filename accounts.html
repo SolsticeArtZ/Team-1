@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Space Tigers Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        /* Style for the account page forms */
+        .account-page {
+            padding: 50px 0;
+            background-color: #f1f1f1;
+        }
+
+        .form-container, .profile-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: auto;
+        }
+
+        .form-btn {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        .form-btn span {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .form-btn hr {
+            width: 100%;
+            margin-top: 5px;
+            border: none;
+            height: 3px;
+            background-color: #333;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form .btn, .logout-btn {
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #333;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        form .btn:hover, .logout-btn:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+        }
+
+        /* Media queries for mobile devices */
+        @media only screen and (max-width: 600px) {
+            .form-container, .profile-container {
+                width: 100%;
+            }
+
+            form input, form .btn, .logout-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="STindex.html"><img src="https://i.ibb.co/B2mgCdT/UPSSTiger.png" width="120px" alt="Space Tiger Logo"></a>
+            </div>
+            <nav> 
+                <ul id="MenuItems">
+                    <li><a href="STindex.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="accounts.html" id="accountLink">Account</a></li>
+                </ul>
+            </nav>
+            <img src="https://i.ibb.co/bbkfYHR/shopping-cart.png" width="30px" height="30px" alt="Cart Icon" class="cart-icon" onclick="window.location.href='cart.html'">
+            <img src="https://i.ibb.co/wgLQyHW/588a6507d06f6719692a2d15.png" width="30px" height="30px" alt="Menu Icon" class="menu-icon" onclick="menutoggle()">
+        </div>
+    </div>
+</div>
+
+<!-- Account Page Section -->
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="https://i.ibb.co/MPBgHfj/Galax-Geo-enhanced.png" width="100%">
+            </div>
+            <div class="col-2">
+                <div class="form-container" id="authContainer">
+                    
+                    <!-- Login/Register Forms -->
+                    <div id="loginRegisterSection">
+                        <!-- Login Heading -->
+                        <h2>Login</h2>
+                        <form id="LoginForm" onsubmit="return handleLogin()">
+                            <input type="email" id="loginEmail" placeholder="Email" required>
+                            <input type="password" id="loginPassword" placeholder="Password" required>
+                            <button type="submit" class="btn">Login</button>
+                            <p class="error" id="loginError"></p>
+                        </form>
+
+                        <!-- Register Heading -->
+                        <h2>Register</h2>
+                        <form id="RegForm" onsubmit="return handleRegister()">
+                            <input type="text" id="regUsername" placeholder="Username" required>
+                            <input type="email" id="regEmail" placeholder="Email" required>
+                            <input type="password" id="regPassword" placeholder="Password" required>
+                            <button type="submit" class="btn">Register</button>
+                            <p class="error" id="regError"></p>
+                        </form>
+                    </div>
+
+                    <!-- Profile and Logout Section -->
+                    <div id="profileSection" class="profile-container" style="display: none;">
+                        <h2>Profile Information</h2>
+                        <div class="profile-info">
+                            <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+                            <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                        </div>
+                        <button class="logout-btn" onclick="logout()">Logout</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Menu Toggle Script -->
+<script>
+    function menutoggle() {
+        var MenuItems = document.getElementById("MenuItems");
+        if (MenuItems.style.maxHeight == "0px" || MenuItems.style.maxHeight == "") {
+            MenuItems.style.maxHeight = "200px";
+        } else {
+            MenuItems.style.maxHeight = "0px";
+        }
+    }
+</script>
+
+<!-- Form Toggle Script -->
+<script>
+    var LoginForm = document.getElementById("LoginForm");
+    var RegForm = document.getElementById("RegForm");
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || null;
+
+    // Handle registration
+    function handleRegister() {
+        const username = document.getElementById('regUsername').value;
+        const email = document.getElementById('regEmail').value;
+        const password = document.getElementById('regPassword').value;
+
+        const existingUser = users.find(user => user.email === email);
+        if (existingUser) {
+            document.getElementById('regError').textContent = 'Email is already registered.';
+            return false;
+        }
+
+        users.push({ username, email, password, cart: [] });
+        localStorage.setItem('users', JSON.stringify(users));
+        alert('Registration successful. You can now log in.');
+        return true;
+    }
+
+    // Handle login
+    function handleLogin() {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+
+        const user = users.find(user => user.email === email && user.password === password);
+        if (user) {
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            loggedInUser = user;
+            alert('Login successful.');
+            switchToProfile();
+            return true;
+        } else {
+            document.getElementById('loginError').textContent = 'Invalid email or password.';
+            return false;
+        }
+    }
+
+    // Handle logout
+    function logout() {
+        localStorage.removeItem('loggedInUser');
+        loggedInUser = null;
+        alert('You have logged out.');
+        switchToLoginRegister();
+    }
+
+    // Switch to profile section after login
+    function switchToProfile() {
+        document.getElementById('loginRegisterSection').style.display = 'none';
+        document.getElementById('profileSection').style.display = 'block';
+
+        // Display user info
+        document.getElementById('profileUsername').textContent = loggedInUser.username;
+        document.getElementById('profileEmail').textContent = loggedInUser.email;
+    }
+
+    // Switch back to login/register forms
+    function switchToLoginRegister() {
+        document.getElementById('profileSection').style.display = 'none';
+        document.getElementById('loginRegisterSection').style.display = 'block';
+    }
+
+    // Check login status on page load
+    window.onload = function () {
+        if (loggedInUser) {
+            switchToProfile();
+        }
+    };
+</script>
+
+<!-- Footer -->
+<div class="footer">
+    <div class="container footer-content">
+        <h3>Download a PDF of Our Most Recent Offers</h3>  
+        <p>Download on all platforms & open with Adobe Acrobat</p>
+        <img src="https://www.freeiconspng.com/uploads/pdf-icon-4.png" width="40px" height="40px" alt="PDF Icon" style="cursor: pointer;" onclick="downloadPDF()">
+    </div>
+</div>
+
+<script>
+    function downloadPDF() {
+        var link = document.createElement('a');
+        link.href = 'https://jmp.sh/s/ZohR9Q11VEYSGpBs4a5N';  // Your provided PDF link
+        link.download = 'most-recent-offers.pdf';  // Name of the file when downloaded
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+</body>
+</html>

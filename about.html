@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Space Tigers Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="https://i.ibb.co/B2mgCdT/UPSSTiger.png" width="120px" alt="Space Tiger Logo">
+        </div>
+        <nav>
+            <ul id="MenuItems">
+                <li><a href="STindex.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="accounts.html" id="accountLink">Account</a></li>
+            </ul>
+        </nav>
+        <img src="https://i.ibb.co/bbkfYHR/shopping-cart.png" width="30px" height="30px" alt="Cart Icon" class="cart-icon" onclick="window.location.href='cart.html'">
+        <img src="https://i.ibb.co/wgLQyHW/588a6507d06f6719692a2d15.png" width="30px" height="30px" alt="Menu Icon" class="menu-icon" onclick="menutoggle()">
+    </div>
+
+    <!-- Sticky Note Section for About Us -->
+    <div class="sticky-note-container">
+        <h1>About Space Tigers</h1>
+        <p>Welcome to Space Tigers, where we offer a cosmic collection of products designed to bring out the explorer in you. Our mission is to create unique, high-quality products that combine modern design with the spirit of adventure. Whether you're looking for exclusive apparel, innovative accessories, or futuristic gear, Space Tigers is here to deliver.</p>
+        <p class="italic">Our journey started in 2024, when a group of tech enthusiasts and designers came together with a shared goal: to merge technology, art, and fashion. Since then, we've been on an exciting ride, offering a unique blend of practicality and style to customers around the world.</p>
+        <p>From our signature Tiger-themed gear to the cutting-edge tools we offer, our products are crafted with attention to detail, built to last, and designed to inspire. Explore our collection and join the Space Tigers family today!</p>
+        <p class="italic">"Where the wild meets the cosmic - Space Tigers leads the charge."</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container footer-content">
+            <h3>Download a PDF of Our Most Recent Offers</h3>
+            <p>Download on all platforms & open with Adobe Acrobat</p>
+            <img src="https://www.freeiconspng.com/uploads/pdf-icon-4.png" width="40px" height="40px" alt="PDF Icon" style="cursor: pointer;" onclick="downloadPDF()">
+        </div>
+    </div>
+
+    <script>
+        function menutoggle() {
+            var MenuItems = document.getElementById("MenuItems");
+            if (MenuItems.style.maxHeight == "0px" || MenuItems.style.maxHeight == "") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+        function downloadPDF() {
+            var link = document.createElement('a');
+            link.href = 'https://jmp.sh/s/ZohR9Q11VEYSGpBs4a5N';  // Example PDF link
+            link.download = 'most-recent-offers.pdf';  // Name of the file when downloaded
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+
+</body>
+</html>

@@ -3,14 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Tigers Shop</title>
+    <title>All Products - Space Tigers</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
     <style>
-        /* Add space for username next to the logo */
+        /* General button styling */
+        button.add-to-cart-btn {
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #333;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        button.add-to-cart-btn:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        button.add-to-cart-btn:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ensures spacing between buttons and elements */
+        .product-container {
+            margin-bottom: 15px;
+        }
+
+        /* Username display next to logo */
         .logo-container {
             display: flex;
             align-items: center;
@@ -21,23 +50,16 @@
             font-size: 16px;
             color: #333;
         }
-
-        /* Style for the Logout button in the navbar */
-        .logout-link {
-            color: red;
-            font-size: 16px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
-<div class="header">
+
+<div>
     <div class="container">
         <div class="navbar">
             <div class="logo-container">
                 <img src="https://i.ibb.co/B2mgCdT/UPSSTiger.png" width="120px" alt="Space Tiger Logo">
-                <!-- Username will be displayed here -->
-                <span class="username-display" id="usernameDisplay"></span>
+                <span class="username-display" id="usernameDisplay"></span> <!-- Username display -->
             </div>
             <nav> 
                 <ul id="MenuItems">
@@ -52,17 +74,6 @@
             <img src="https://i.ibb.co/bbkfYHR/shopping-cart.png" width="30px" height="30px" alt="Cart Icon" class="cart-icon" onclick="window.location.href='cart.html'">
             <img src="https://i.ibb.co/wgLQyHW/588a6507d06f6719692a2d15.png" width="30px" height="30px" alt="Menu Icon" class="menu-icon" onclick="menutoggle()">
         </div>
-
-        <div class="row">
-            <div class="col-2">
-                <h1>Welcome to The Space Tiger Market</h1>
-                <p>Shop around and get great deals on a quality tiger<br>gripping product like the new space tigers waterbottle.</p>
-                <a href="products.html" class="btn">Explore Now</a>
-            </div>
-            <div class="col-2">
-                <img src="https://i.ibb.co/MPBgHfj/Galax-Geo-enhanced.png" alt="Galax Geo">
-            </div>
-        </div>
     </div>
 </div>
 
@@ -76,45 +87,23 @@
             MenuItems.style.maxHeight = "0px";
         }
     }
-
-    // Check if user is logged in and update the logo area with their username
-    function checkLoginStatus() {
-        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-        const usernameDisplay = document.getElementById('usernameDisplay');
-        
-        if (loggedInUser) {
-            usernameDisplay.textContent = `Hello, ${loggedInUser.username}`; // Show username next to logo
-        } else {
-            usernameDisplay.textContent = ""; // No username if not logged in
-        }
-    }
-
-    window.onload = checkLoginStatus; // Check login status on page load
 </script>
 
-<!-- Featured Categories-->
-<div class="categories">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-3">
-                <img src="https://http2.mlstatic.com/D_Q_NP_932951-MLA42294445731_062020-O.webp" alt="Category 1">
-            </div>
-            <div class="col-3">
-                <img src="https://i.etsystatic.com/22187715/r/il/bb637a/2386190232/il_570xN.2386190232_odnf.jpg" alt="Category 2">
-            </div>
-            <div class="col-3">
-                <img src="https://fbi.cults3d.com/uploaders/14590672/illustration-file/546ab5a3-cde6-48e9-9273-f9f81ac226f6/ti.jpg" alt="Category 3">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Featured Products Section -->
+<!-- All Products Section -->
 <div class="small-container">
-    <div class="title"><h2 class="center">Featured Products</h2></div>
-    <div class="row">
+    <div class="row row-2">
+        <h2>All Products</h2>
+    </div>
+    <select id="sortOptions" onchange="sortProducts()">
+        <option value="default">Default Sorting</option>
+        <option value="priceLowHigh">Sort by Price: Low to High</option>
+        <option value="priceHighLow">Sort by Price: High to Low</option>
+        <option value="rating">Sort by Rating</option>
+    </select>
+
+    <div id="products" class="row">
         <!-- Product 1 -->
-        <div class="col-6">
+        <div class="col-6 product-container" data-price="25" data-rating="4">
             <img src="https://i.ibb.co/9gGtQdw/file.jpg" alt="Space Tiger's Water Bottle">
             <h5>Space Tiger's Water Bottle</h5>
             <div class="rating">
@@ -137,7 +126,7 @@
         </div>
 
         <!-- Product 2 -->
-        <div class="col-5">
+        <div class="col-5 product-container" data-price="35" data-rating="5">
             <img src="https://i.etsystatic.com/42327702/r/il/6f51fe/6147878809/il_794xN.6147878809_4w4w.jpg" alt="Space Tiger's T-Shirt">
             <h5>Space Tiger's Unisex T-Shirt</h5>
             <div class="rating">
@@ -160,7 +149,7 @@
         </div>
 
         <!-- Product 3 -->
-        <div class="col-5">
+        <div class="col-5 product-container" data-price="60" data-rating="3">
             <img src="https://m.media-amazon.com/images/I/71tFGG98YUL._AC_SX679_.jpg" alt="Space Tiger's Shorts">
             <h5>Space Tiger Eyes Shorts</h5>
             <div class="rating">
@@ -183,7 +172,7 @@
         </div>
 
         <!-- Product 4 -->
-        <div class="col-5">
+        <div class="col-5 product-container" data-price="99" data-rating="5">
             <img src="https://coolwear.shop/cdn/shop/files/1774-1_ad98af07-0700-4e43-ae55-8369bc5b0ab9_480x.jpg?v=1709891962" alt="Space Tiger's Crocs">
             <h5>Space Tiger Crocs Supremes</h5>
             <div class="rating">
@@ -204,39 +193,98 @@
             </select>
             <button class="add-to-cart-btn" onclick="addToCart('Space Tiger Crocs Supremes', 99, 'https://coolwear.shop/cdn/shop/files/1774-1_ad98af07-0700-4e43-ae55-8369bc5b0ab9_480x.jpg', 'quantity-4')">Add to Cart</button>
         </div>
-    </div>
-</div>
 
-<!--Website Deals Page-->
-<div class="offer">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-2">
-                <h1>Tiger Watch Executive</h1>
-                <small>Elevate your style with the Tiger Watch Executive, the ultimate blend of sophistication and cutting-edge technology. For a limited time only, experience exclusive savings on this sleek timepiece designed for those who command excellence.</small>
+         <!-- Product 5 -->
+         <div class="col-5 product-container" data-price="99" data-rating="5">
+            <img src="https://i.ibb.co/jrxf136/piaget-01.jpg" alt="piaget-01" border="0" />
+            <h5>Space Tiger Watch</h5>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
             </div>
-            <div class="col-2">
-                <img src="https://ztylez.com/wp-content/uploads/2022/01/piaget_01.jpg" class="offer-img">
-            </div>    
+            <p>$250.00</p>
+            <label for="quantity-4">Quantity:</label>
+            <select id="quantity-4">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button class="add-to-cart-btn" onclick="addToCart('Space Tiger Watch', 250, 'https://i.ibb.co/jrxf136/piaget-01.jpg', 'quantity-4')">Add to Cart</button>
         </div>
     </div>
 </div>
 
-<!-- About the Creators -->
-<div class="AboutTheCreators">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-12">
-                <div class="notepad">
-                    <h3>About the Creators</h3>
-                    <p>Welcome to Space Tigers Shop, where creativity meets innovation! Our team consists of passionate individuals from diverse backgrounds, all united by the common goal of bringing high-quality, futuristic products to life. From designers to developers, we strive to ensure that every item in our store delivers a unique and memorable experience.</p>
-                    <p>At Space Tigers, we believe in the power of imagination and technology working together. Whether you're browsing our featured products or exploring new additions, we hope to inspire you with our creations.</p>
-                    <p class="italic">"Innovation is our playground, and you're invited to join us on this journey."</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- JavaScript to handle Add to Cart and Sorting functionality -->
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(productName, price, imageUrl, quantitySelectorId) {
+        const quantity = document.getElementById(quantitySelectorId).value;
+        cart.push({
+            product: productName,
+            price: price,
+            quantity: parseInt(quantity),
+            image: imageUrl
+        });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${quantity} ${productName}(s) have been added to your cart.`);
+    }
+
+    function sortProducts() {
+        const sortOption = document.getElementById('sortOptions').value;
+        const productsContainer = document.getElementById('products');
+        const products = Array.from(document.querySelectorAll('.product-container'));
+
+        let sortedProducts = [];
+
+        if (sortOption === 'priceLowHigh') {
+            sortedProducts = products.sort((a, b) => a.getAttribute('data-price') - b.getAttribute('data-price'));
+        } else if (sortOption === 'priceHighLow') {
+            sortedProducts = products.sort((a, b) => b.getAttribute('data-price') - a.getAttribute('data-price'));
+        } else if (sortOption === 'rating') {
+            sortedProducts = products.sort((a, b) => b.getAttribute('data-rating') - a.getAttribute('data-rating'));
+        } else {
+            // Default sorting (could just append in the original order)
+            sortedProducts = products;
+        }
+
+        // Clear the container and append sorted products
+        productsContainer.innerHTML = '';
+        sortedProducts.forEach(product => {
+            productsContainer.appendChild(product);
+        });
+    }
+
+    function updateNavbar() {
+        let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        let accountLink = document.getElementById('accountLink');
+        let navbar = document.querySelector('.navbar ul');
+
+        if (loggedInUser) {
+            accountLink.innerHTML = 'Profile';
+            accountLink.href = 'accounts.html';
+
+            let logoutLink = document.createElement('li');
+            logoutLink.innerHTML = '<a href="#" id="logoutLink">Logout</a>';
+            navbar.appendChild(logoutLink);
+
+            document.getElementById('logoutLink').addEventListener('click', function () {
+                localStorage.removeItem('loggedInUser');
+                alert('You have been logged out.');
+                window.location.reload();
+            });
+        }
+    }
+
+    window.onload = function () {
+        updateNavbar();
+    };
+</script>
 
 <!-- Footer -->
 <div class="footer">
@@ -256,49 +304,6 @@
         link.click();
         document.body.removeChild(link);
     }
-
-    // Add to Cart functionality
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    function addToCart(productName, price, imageUrl, quantitySelectorId) {
-        const quantity = document.getElementById(quantitySelectorId).value;
-        cart.push({
-            product: productName,
-            price: price,
-            quantity: parseInt(quantity),
-            image: imageUrl
-        });
-        localStorage.setItem('cart', JSON.stringify(cart));
-        alert(`${quantity} ${productName}(s) have been added to your cart.`);
-    }
-    
-    // Function to dynamically update the navbar based on login state
-    function updateNavbar() {
-        let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-        let accountLink = document.getElementById('accountLink');
-        let navbar = document.querySelector('.navbar ul');
-
-        if (loggedInUser) {
-            // Change Account link to Profile
-            accountLink.innerHTML = 'Profile';
-            accountLink.href = 'accounts.html';
-
-            // Add Logout link
-            let logoutLink = document.createElement('li');
-            logoutLink.innerHTML = '<a href="#" id="logoutLink">Logout</a>';
-            navbar.appendChild(logoutLink);
-
-            document.getElementById('logoutLink').addEventListener('click', function () {
-                localStorage.removeItem('loggedInUser');
-                alert('You have been logged out.');
-                window.location.reload();
-            });
-        }
-    }
-
-    window.onload = function () {
-        updateNavbar();
-    };
 </script>
 
 </body>
